@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globalis | Diario Geopolítico Automatizado</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            850: '#151f32',
+                            950: '#0b0f19',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Inter & Playfair Display for editorial touch -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-editorial {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Custom smooth scroll & transition effects */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-full flex flex-col transition-colors duration-300">
+
+    <!-- Top Announcement / Ticker Bar -->
+    <div class="bg-slate-900 text-slate-200 text-xs py-2 px-4 border-b border-slate-800 dark:bg-slate-900 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="font-semibold tracking-wider uppercase text-[10px] bg-emerald-950 text-emerald-400 px-2 py-0.5 rounded border border-emerald-800">Redacción Autónoma Activa</span>
+                <span class="text-slate-400 hidden md:inline">| Monitoreo constante de fuentes internacionales y síntesis por IA</span>
+            </div>
+            <div class="flex items-center space-x-4 text-slate-400">
+                <span id="current-date"></span>
+                <button id="theme-toggle" class="hover:text-white transition-colors focus:outline-none" title="Cambiar tema">
+                    <i class="fa-solid fa-moon dark:fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <a href="#" class="flex items-center space-x-2 group">
+                    <div class="w-10 h-10 rounded-lg bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 flex items-center justify-center font-editorial font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
+                        G
+                    </div>
+                    <div>
+                        <span class="font-editorial text-2xl font-bold tracking-tight">GLOBALIS</span>
+                        <span class="block text-[10px] tracking-widest text-slate-500 dark:text-slate-400 uppercase font-semibold">Análisis Geopolítico & Multicanal</span>
+                    </div>
+                </a>
+            </div>
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#feed" class="text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Últimas Publicaciones</a>
+                <a href="#about" class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Sobre el Proyecto</a>
+                <a href="#api-sync" class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Sincronización Bot</a>
+            </nav>
+            <div class="flex items-center space-x-3">
+                <span class="hidden sm:inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 dark:bg-blue-950/60 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+                    <i class="fa-solid fa-bolt mr-1.5 text-blue-500"></i> En Vivo v2.0
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero / Intro Section -->
+    <section class="relative py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-100 to-white dark:from-slate-900 dark:to-slate-950 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="font-editorial text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">
+                El mapa mundial cambia.<br/><span class="italic text-blue-600 dark:text-blue-400">La información también.</span>
+            </h1>
+            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-8 font-light">
+                Plataforma de periodismo automatizado que rastrea conflictos internacionales, cambios en alianzas globales y transforma eventos complejos en hilos de análisis y guiones multimedia en tiempo real.
+            </p>
+            
+            <!-- Search & Filter Toolbar -->
+            <div class="max-w-2xl mx-auto flex flex-col sm:flex-row gap-3 p-2 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800">
+                <div class="relative flex-grow">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" id="search-input" placeholder="Buscar por tema, país o palabra clave (ej. Asia, comercio...)" class="w-full pl-11 pr-4 py-3 bg-transparent text-sm focus:outline-none placeholder-slate-400 text-slate-900 dark:text-slate-100">
+                </div>
+                <div class="flex items-center space-x-2 border-t sm:border-t-0 sm:border-l border-slate-200 dark:border-slate-800 pt-2 sm:pt-0 sm:pl-3">
+                    <select id="category-filter" class="w-full sm:w-auto bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium py-2.5 px-3 rounded-xl focus:outline-none border border-slate-200 dark:border-slate-700">
+                        <option value="all">Todas las categorías</option>
+                        <option value="conflicto">Conflictos & Seguridad</option>
+                        <option value="economia">Comércio & Bloques</option>
+                        <option value="diplomacia">Diplomacia</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content / News Feed Section -->
+    <main id="feed" class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="flex justify-between items-center mb-8">
+            <div>
+                <h2 class="font-editorial text-2xl sm:text-3xl font-bold">Últimos Informes Generados</h2>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Actualizado autónomamente mediante síntesis de IA y RSS global.</p>
+            </div>
+            <span id="results-count" class="text-xs font-semibold px-3 py-1 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">
+                Mostrando artículos
+            </span>
+        </div>
+
+        <!-- Articles Container -->
+        <div id="articles-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Dynamic Cards Injected Here via JavaScript -->
+        </div>
+
+        <!-- Empty State (hidden by default) -->
+        <div id="empty-state" class="hidden text-center py-16">
+            <div class="w-16 h-16 bg-slate-100 dark:bg-slate-800 text-slate-400 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                <i class="fa-solid fa-folder-open"></i>
+            </div>
+            <h3 class="text-lg font-bold">No se encontraron artículos</h3>
+            <p class="text-sm text-slate-500 mt-1">Prueba con otros términos de búsqueda o restablece los filtros.</p>
+        </div>
+    </main>
+
+    <!-- Documentation / API Sync Section for Python integration -->
+    <section id="api-sync" class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-3 py-1 rounded-full border border-blue-200 dark:border-blue-800">Infraestructura Abierta</span>
+                <h2 class="font-editorial text-3xl font-bold mt-3">Conexión con tu Bot de Python</h2>
+                <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 max-w-xl mx-auto">
+                    Esta web app está diseñada para alojarse estáticamente en GitHub Pages o Vercel. Tu script en Google Colab puede actualizar fácilmente el archivo JSON de artículos para alimentar esta interfaz pública.
+                </p>
+            </div>
+
+            <div class="bg-slate-900 text-slate-200 rounded-2xl p-6 shadow-2xl border border-slate-800 text-sm font-mono overflow-x-auto">
+                <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-800 text-slate-400 text-xs">
+                    <span>Estructura JSON recomendada (articles.json)</span>
+                    <button onclick="copySnippet(this)" class="hover:text-white transition-colors flex items-center space-x-1">
+                        <i class="fa-regular fa-copy"></i> <span>Copiar</span>
+                    </button>
+                </div>
+                <pre class="text-slate-300 text-xs sm:text-sm leading-relaxed"><code>[
+  {
+    "id": 1,
+    "title": "El mapa geopolítico mundial cambia entre acuerdos y conflictos",
+    "source": "El Boletín / Google News",
+    "category": "conflicto",
+    "date": "15 Oct 2026 - 20:00",
+    "twitter": {
+      "thread": [
+        "El orden internacional vive su mayor reconfiguración desde la Guerra Fría. Entre alianzas pragmáticas emergentes... #Geopolítica",
+        "La clave: la diplomacia transaccional desplaza a los bloques ideológicos. #RelacionesInternacionales"
+      ]
+    },
+    "tiktok": {
+      "title": "¿Se está redibujando el mapa del mundo?",
+      "hook": "El mapa del poder mundial acaba de cambiar… y no necesariamente por una guerra mundial.",
+      "points": [
+        "Se acabó el mundo unipolar y los bandos fijos.",
+        "Ascenso del 'Sur Global' buscando autonomía estratégica.",
+        "Tratados comerciales conviven con fricciones regionales."
+      ],
+      "visuals": "[Animación de globo terráqueo y gráficos comerciales]"
+    }
+  }
+]</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-slate-100 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-12 px-4 sm:px-6 lg:px-8 text-center text-sm text-slate-600 dark:text-slate-400">
+        <div class="max-w-2xl mx-auto">
+            <h3 class="font-editorial text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">Acerca de Globalis</h3>
+            <p class="leading-relaxed">
+                Desarrollado como iniciativa de redacción automática 100% libre de costes mediante Google Colab, la API de Gemini y automatización de canales digitales. Transparencia informativa y análisis estratégico descentralizado.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-8 px-4 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 Globalis Journal. Todos los derechos reservados.</p>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-blue-600 transition-colors">Privacidad</a>
+                <a href="#" class="hover:text-blue-600 transition-colors">Términos</a>
+                <a href="#" class="hover:text-blue-600 transition-colors">RSS Feed</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application JavaScript Logic -->
+    <script>
+        // Set current date in header
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString('es-ES', options);
+
+        // Theme Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Check user system preference or saved preference
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Mock Database of Articles (Simulating what Python pushes to articles.json)
+        const articlesDatabase = [
+            {
+                id: 1,
+                title: "El mapa geopolítico mundial cambia entre acuerdos y conflictos",
+                source: "El Boletín",
+                category: "conflicto",
+                date: "Hace 2 horas",
+                summary: "Análisis sobre la reconfiguración del orden internacional, la diplomacia transaccional y la pérdida de peso de los bloques ideológicos tradicionales en favor de la autonomía del Sur Global.",
+                twitter: {
+                    thread: [
+                        "1/2 El orden internacional vive su mayor reconfiguración desde la Guerra Fría. Entre alianzas pragmáticas y focos de conflicto activos, el mapa global avanza hacia una fragmentación multipolar acelerada. #Geopolítica",
+                        "2/2 La clave: la diplomacia transaccional desplaza a los bloques ideológicos. El Sur Global diversifica sus alianzas para maximizar su autonomía estratégica. #RelacionesInternacionales"
+                    ]
+                },
+                tiktok: {
+                    title: "¿Se está redibujando el mapa del mundo?",
+                    hook: "El mapa del poder mundial acaba de cambiar… y no necesariamente por una guerra mundial.",
+                    points: [
+                        "Se acabó el mundo unipolar y los bandos fijos tradicionales.",
+                        "Ascenso imparable del 'Sur Global' negociando con múltiples bloques.",
+                        "Tratados comerciales clave conviven al límite con fricciones regionales."
+                    ],
+                    visuals: "[Animación globo terráqueo cambiando fronteras / Gráficos de comercio]"
+                }
+            },
+            {
+                id: 2,
+                title: "Nuevas rutas comerciales y seguridad energética en el Indo-Pacífico",
+                source: "Reuters / Global News",
+                category: "economia",
+                date: "Hace 5 horas",
+                summary: "Las principales potencias navales refuerzan acuerdos de cooperación ante la inestabilidad en corredores logísticos marítimos clave para el suministro tecnológico y energético.",
+                twitter: {
+                    thread: [
+                        "1/2 Las cadenas de suministro global enfrentan una presión sin precedentes en corredores marítimos clave del Indo-Pacífico. #EconomíaGlobal",
+                        "2/2 La seguridad tecnológica y el acceso a semiconductores dictan la nueva agenda diplomática de las potencias intermedias. #Geoeconomía"
+                    ]
+                },
+                tiktok: {
+                    title: "La batalla silenciosa por las rutas del mar",
+                    hook: "¿Sabías que el 80% de lo que compras pasa por puntos marítimos que hoy están al límite?",
+                    points: [
+                        "La importancia crítica de los estrechos y canales comerciales.",
+                        "Cómo las potencias aseguran los suministros de chips y energía.",
+                        "El impacto directo en la economía diaria de los ciudadanos."
+                    ],
+                    visuals: "[Mapas de rutas de cargueros / Puertos internacionales con alta actividad]"
+                }
+            },
+            {
+                id: 3,
+                title: "Cumbres multilaterales: El auge de la diplomacia pragmática",
+                source: "Foreign Affairs Summary",
+                category: "diplomacia",
+                date: "Hace 1 día",
+                summary: "Los foros internacionales reflejan un cambio drástico: menos discursos ideológicos y más acuerdos bilaterales orientados a resultados económicos inmediatos.",
+                twitter: {
+                    thread: [
+                        "1/2 Las cumbres multilaterales ya no buscan grandes consensos globales, sino acuerdos transaccionales rápidos entre potencias regionales. #Diplomacia",
+                        "2/2 El pragmatismo sustituye a la ideología en las relaciones exteriores del siglo XXI. #Geopolítica"
+                    ]
+                },
+                tiktok: {
+                    title: "El fin de la diplomacia tradicional",
+                    hook: "Las cumbres internacionales ya no funcionan como antes. Esto es lo que pasa detrás de las cámaras.",
+                    points: [
+                        "Reuniones bilaterales secretas por encima de grandes plenarios.",
+                        "Intereses económicos puros frente a alianzas ideológicas.",
+                        "Ganadores y perdedores en este nuevo tablero."
+                    ],
+                    visuals: "[Salas de conferencias diplomáticas / Gráficos estadísticos de acuerdos]"
+                }
+            }
+        ];
+
+        // Render Articles Feed
+        function renderArticles(filter = 'all', searchQuery = '') {
+            const grid = document.getElementById('articles-grid');
+            const emptyState = document.getElementById('empty-state');
+            const resultsCount = document.getElementById('results-count');
+
+            grid.innerHTML = '';
+
+            const filtered = articlesDatabase.filter(article => {
+                const matchesCategory = filter === 'all' || article.category === filter;
+                const matchesSearch = article.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                      article.summary.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+
+            resultsCount.innerText = `${filtered.length} artículo${filtered.length !== 1 ? 's' : ''}`;
+
+            if (filtered.length === 0) {
+                emptyState.classList.remove('hidden');
+                return;
+            } else {
+                emptyState.classList.add('hidden');
+            }
+
+            filtered.forEach(article => {
+                const card = document.createElement('div');
+                card.className = "bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden";
+                
+                // Category badge colors
+                let badgeColor = "bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300";
+                if(article.category === 'economia') badgeColor = "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300";
+                if(article.category === 'diplomacia') badgeColor = "bg-purple-100 text-purple-800 dark:bg-purple-950 dark:text-purple-300";
+
+                card.innerHTML = `
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex items-center justify-between text-xs mb-3">
+                            <span class="px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider ${badgeColor}">${article.category}</span>
+                            <span class="text-slate-500 dark:text-slate-400"><i class="fa-regular fa-clock mr-1"></i>${article.date}</span>
+                        </div>
+                        
+                        <h3 class="font-editorial text-xl font-bold mb-3 leading-snug hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                            ${article.title}
+                        </h3>
+                        
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mb-6 flex-grow leading-relaxed">
+                            ${article.summary}
+                        </p>
+
+                        <div class="text-xs text-slate-500 dark:text-slate-400 mb-4 flex items-center space-x-1">
+                            <i class="fa-solid fa-newspaper"></i>
+                            <span>Fuente original: <strong class="text-slate-700 dark:text-slate-300">${article.source}</strong></span>
+                        </div>
+
+                        <!-- Interactive Tabs for Social Outputs -->
+                        <div class="border-t border-slate-100 dark:border-slate-800 pt-4 mt-auto">
+                            <div class="flex space-x-2 mb-3">
+                                <button onclick="switchTab(${article.id}, 'twitter')" id="btn-twitter-${article.id}" class="tab-btn-${article.id} flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 transition-colors flex items-center justify-center space-x-1.5">
+                                    <i class="fa-brands fa-x-twitter"></i> <span>Hilo X (Twitter)</span>
+                                </button>
+                                <button onclick="switchTab(${article.id}, 'tiktok')" id="btn-tiktok-${article.id}" class="tab-btn-${article.id} flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 transition-colors flex items-center justify-center space-x-1.5">
+                                    <i class="fa-brands fa-tiktok"></i> <span>Guión TikTok</span>
+                                </button>
+                            </div>
+
+                            <!-- Tab Content: Twitter -->
+                            <div id="content-twitter-${article.id}" class="social-content-${article.id} bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-200 dark:border-slate-800 text-xs space-y-2">
+                                ${article.twitter.thread.map((t, idx) => `<div class="p-2.5 bg-white dark:bg-slate-900 rounded-lg border border-slate-100 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-sans leading-relaxed">${t}</div>`).join('')}
+                                <button onclick="copyContent(this)" class="mt-2 w-full py-1 text-center font-medium text-blue-600 dark:text-blue-400 hover:underline">
+                                    <i class="fa-regular fa-copy mr-1"></i> Copiar hilo completo
+                                </button>
+                            </div>
+
+                            <!-- Tab Content: TikTok (Hidden by default) -->
+                            <div id="content-tiktok-${article.id}" class="social-content-${article.id} hidden bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-200 dark:border-slate-800 text-xs space-y-3">
+                                <div class="font-bold text-slate-900 dark:text-white flex items-center space-x-1">
+                                    <span class="text-blue-500">📌 Título:</span> <span>${article.tiktok.title}</span>
+                                </div>
+                                <div class="p-2.5 bg-amber-50 dark:bg-amber-950/40 rounded-lg border border-amber-200 dark:border-amber-900 text-amber-900 dark:text-amber-200">
+                                    <strong>Gancho (0-3s):</strong> "${article.tiktok.hook}"
+                                </div>
+                                <div class="space-y-1.5">
+                                    <span class="font-semibold text-slate-700 dark:text-slate-300">Puntos Clave:</span>
+                                    <ul class="list-disc list-inside space-y-1 text-slate-600 dark:text-slate-400 pl-1">
+                                        ${article.tiktok.points.map(p => `<li>${p}</li>`).join('')}
+                                    </ul>
+                                </div>
+                                <div class="text-[11px] text-purple-600 dark:text-purple-400 italic bg-purple-50 dark:bg-purple-950/40 p-2 rounded border border-purple-200 dark:border-purple-900">
+                                    <strong>Cues Visuales:</strong> ${article.tiktok.visuals}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Tab Switching Helper
+        function switchTab(articleId, tabName) {
+            const twitterContent = document.getElementById(`content-twitter-${articleId}`);
+            const tiktokContent = document.getElementById(`content-tiktok-${articleId}`);
+            const twitterBtn = document.getElementById(`btn-twitter-${articleId}`);
+            const tiktokBtn = document.getElementById(`btn-tiktok-${articleId}`);
+
+            if (tabName === 'twitter') {
+                twitterContent.classList.remove('hidden');
+                tiktokContent.classList.add('hidden');
+                twitterBtn.className = "flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 transition-colors flex items-center justify-center space-x-1.5";
+                tiktokBtn.className = "flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 transition-colors flex items-center justify-center space-x-1.5";
+            } else {
+                tiktokContent.classList.remove('hidden');
+                twitterContent.classList.add('hidden');
+                tiktokBtn.className = "flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 transition-colors flex items-center justify-center space-x-1.5";
+                twitterBtn.className = "flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 transition-colors flex items-center justify-center space-x-1.5";
+            }
+        }
+
+        // Copy functionality
+        function copyContent(btn) {
+            const container = btn.parentElement;
+            const textToCopy = Array.from(container.querySelectorAll('div')).map(el => el.innerText).join('\n\n');
+            document.execCommand('copy');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = `<i class="fa-solid fa-check mr-1 text-emerald-500"></i> ¡Copiado al portapapeles!`;
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+            }, 2000);
+        }
+
+        function copySnippet(btn) {
+            const pre = btn.parentElement.nextElementSibling;
+            const range = document.createRange();
+            range.selectNode(pre);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i> <span>Copiado</span>`;
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+            }, 2000);
+        }
+
+        // Event Listeners for Filters & Search
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            const query = e.target.value;
+            const category = document.getElementById('category-filter').value;
+            renderArticles(category, query);
+        });
+
+        document.getElementById('category-filter').addEventListener('change', (e) => {
+            const category = e.target.value;
+            const query = document.getElementById('search-input').value;
+            renderArticles(category, query);
+        });
+
+        // Initial render on load
+        window.onload = function() {
+            renderArticles();
+        };
+    </script>
+</body>
+</html>
