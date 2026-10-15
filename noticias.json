@@ -1,5 +1,13 @@
 [
     {
+        "id": 4,
+        "titulo": "La reconfiguración del orden internacional: el frágil equilibrio entre la proliferación de conflictos y los pactos pragmáticos",
+        "categoria": "GEOPOLÍTICA",
+        "fecha": "15/10/2026",
+        "imagen": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80",
+        "texto_web": "El tablero internacional asiste a una mutación estructural acelerada, caracterizada por la coexistencia paradójica de focos de guerra abiertos y una intensa actividad diplomática de nuevo cuño. El desgaste de la arquitectura de seguridad construida tras la Guerra Fría se hace patente mientras las potencias tradicionales y emergentes redefinen con urgencia sus áreas de influencia. La simultaneidad de crisis bélicas de primer orden en Europa del Este y Oriente Próximo, sumada a la pugna soterrada en el Indo-Pacífico, está empujando a los Estados a priorizar acuerdos pragmáticos, flexibles y transaccionales por encima de los compromisos multilaterales tradicionales, en un intento por blindar su seguridad energética y comercial.\n\nEsta recomposición geopolítica no solo altera las fronteras de la diplomacia, sino que fractura las cadenas de suministro globales y consolida la división del comercio internacional en bloques de afinidad. El auge y consolidación del denominado Sur Global, con un protagonismo creciente de foros como los BRICS ampliados, desafía de facto la hegemonía institucional y financiera de Occidente, configurando un escenario de multipolaridad asimétrica. Al mismo tiempo, el control sobre recursos críticos —desde hidrocarburos y tierras raras hasta la tecnología de semiconductores— se ha erigido en el principal motor de pactos bilaterales que a menudo ignoran las afinidades ideológicas en favor de la pura resiliencia estratégica.\n\nLas consecuencias a medio plazo perfilan un entorno global de mayor volatilidad donde la diplomacia multilateralizada cede terreno a la gestión reactiva de crisis. Con organismos como Naciones Unidas paralizados por el bloqueo cruzado en el Consejo de Seguridad, la estabilidad internacional dependerá cada vez más de equilibrios regionales precarios y de acuerdos transitorios de desescalada. En este nuevo mapa, los actores intermedios y no alineados cobran un valor geoestratégico inédito, forzando a Washington y Pekín a una permanente negociación de lealtades para evitar que la fragmentación económica desemboque en una confrontación sistémica de consecuencias imprevisibles."
+    },
+    {
         "id": 3,
         "titulo": "La reconfiguración del orden internacional: alianzas tácticas frente a un escenario de tensiones crónicas",
         "categoria": "GEOPOLÍTICA",
