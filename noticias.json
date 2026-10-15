@@ -1,5 +1,13 @@
 [
     {
+        "id": 3,
+        "titulo": "La reconfiguración del orden internacional: alianzas tácticas frente a un escenario de tensiones crónicas",
+        "categoria": "GEOPOLÍTICA",
+        "fecha": "15/10/2026",
+        "imagen": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80",
+        "texto_web": "El tablero geopolítico mundial atraviesa un momento de acelerada metamorfosis diplomática y estratégica. Durante las últimas semanas, las principales potencias globales y los bloques emergentes han intensificado sus maniobras diplomáticas para blindar sus áreas de influencia, en un contexto en el que la firma de acuerdos pragmáticos coexiste de forma precaria con la persistencia y apertura de frentes bélicos. Esta dualidad evidencia el declive definitivo de la hegemonía unipolar de posguerra y certifica la transición hacia un orden multipolar fragmentado, donde la resolución tradicional de conflictos ha cedido el paso a la gestión constante de crisis simultáneas.\n\nEste viraje estratégico responde de forma prioritaria a la lucha por la seguridad económica, el control de las cadenas de suministro de minerales críticos y el dominio de la tecnología punta. En este escenario, el creciente peso político del Sur Global y la pugna sistémica entre Washington y Pekín están empujando a los actores intermedios hacia una diplomacia estrictamente transaccional. Atrás quedan los consensos ideológicos rígidos: hoy proliferan las alianzas de conveniencia regional que buscan minimizar riesgos energéticos y comerciales, transformando el multilateralismo tradicional en una red difusa de pactos bilaterales a la carta.\n\nLas consecuencias a medio plazo perfilan un entorno internacional dominado por la volatilidad institucional y el encarecimiento de la seguridad. La progresiva pérdida de eficacia de los organismos multilaterales como mediadores neutrales deja el arbitraje global en manos de la disuasión militar y las sanciones económicas, lo que incrementa el riesgo de incidentes fortuitos entre bloques. Ante este panorama, la comunidad internacional afronta el desafío ineludible de redefinir las reglas de convivencia global antes de que la actual fragmentación degenere en una polarización irreversible que paralice la cooperación frente a crisis compartidas."
+    },
+    {
         "id": 2,
         "titulo": "El mapa geopolítico mundial cambia entre acuerdos y conflictos - El Boletín",
         "categoria": "Geopolítica",
