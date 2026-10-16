@@ -1,5 +1,13 @@
 [
     {
+        "id": 5,
+        "titulo": "Horizonte 2027: los diez focos de tensión que amenazan con desestabilizar el orden geopolítico global",
+        "categoria": "GEOPOLÍTICA",
+        "fecha": "16/10/2026",
+        "imagen": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80",
+        "texto_web": "La comunidad de analistas en seguridad y relaciones internacionales fija su atención en el horizonte de 2027 como un punto de inflexión crítico para el equilibrio estratégico del planeta. Diversos estudios prospectivos y paneles de expertos multidisciplinares han identificado esta semana las diez principales amenazas que pondrán a prueba la arquitectura multilateral durante los próximos tres años. La confluencia de tensiones territoriales no resueltas, la erosión de los tratados de no proliferación y el recrudecimiento de la competencia interestatal configuran un escenario de vulnerabilidad compartida sin precedentes desde el final de la Guerra Fría.\n\nEntre los factores desestabilizadores más relevantes destaca la creciente fricción entre Estados Unidos y China, con el estrecho de Taiwán como epicentro simbólico y militar en una fecha clave para la modernización del Ejército Popular de Liberación. A este pulso hegemónico se suma la prolongación de la guerra de desgaste en Ucrania, la volatilidad endémica en Oriente Próximo y la emergencia de nuevos teatros de confrontación híbrida. La militarización acelerada de la inteligencia artificial, las ofensivas cibernéticas dirigidas contra infraestructuras críticas y la disputa por el control de materias primas estratégicas actúan ya como multiplicadores del riesgo geopolítico.\n\nLas implicaciones de esta dinámica apuntan hacia una acelerada fragmentación geoeconómica y el debilitamiento de los organismos de gobernanza internacional. Los analistas advierten de que la consolidación de bloques antagónicos no solo dificultará la respuesta coordinada ante crisis climáticas o energéticas, sino que reducirá drásticamente los márgenes de error diplomático. La capacidad de contención preventiva y la diplomacia de disuasión resultarán determinantes para evitar que fricciones localizadas escalen hacia confrontaciones de alcance sistémico antes del cierre de la década."
+    },
+    {
         "id": 4,
         "titulo": "La reconfiguración del orden internacional: el frágil equilibrio entre la proliferación de conflictos y los pactos pragmáticos",
         "categoria": "GEOPOLÍTICA",
